@@ -23,3 +23,12 @@ Route::get('kali/{nilai1}/{nilai2}', function ($nilai1, $nilai2) {
 Route::get('bagi/{nilai1}/{nilai2}', function ($nilai1, $nilai2) {
     return "nilai" . $nilai1 / $nilai2;
 });
+
+// Route::get('/{array}', function ($array) {
+//     return $array =  ["php", "java", "c", "javascript", "dart"];
+// });
+
+Route::get('/array', function () {
+    $arrays = ['php', 'java', 'c', 'javascript', 'dart'];
+    return view('array', ['arrays' => $arrays]);
+});
