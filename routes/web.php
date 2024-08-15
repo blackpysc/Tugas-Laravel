@@ -8,13 +8,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
-Route::get('/regis', function () {
-    return view('regis');
-});
+// Route::get('/regis', function () {
+//     return view('regis');
+// });
 
 
 
@@ -32,4 +32,8 @@ Route::get('/array', function () {
 
 // Route::resource('index', SiswaController::class);
 
-Route::resource('siswa', SiswaController::class);
+Route::resource('siswa', SiswaController::class)->middleware(['auth', 'admin']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

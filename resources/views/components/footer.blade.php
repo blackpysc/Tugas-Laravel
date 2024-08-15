@@ -40,29 +40,36 @@
       <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="login.html">Logout</a>
+        <a class="btn btn-primary" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+          {{ __('Logout') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+          @csrf
+        </form>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="{{ asset('/sb/vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('/sb/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="{{ asset('/sb/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('/sb/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="{{ asset('/sb/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="{{ asset('/sb/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="{{ asset('/sb/js/sb-admin-2.min.js') }}"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="{{ asset('/sb/js/sb-admin-2.min.js') }}"></script>
 
-<!-- Page level plugins -->
-<script src="{{ asset('/sb/vendor/chart.js/Chart.min.js') }}"></script>
+  <!-- Page level plugins -->
+  <script src="{{ asset('/sb/vendor/csart.js/Chart.min.js') }}"></script>
 
-<!-- Page level custom scripts -->
-<script src="{{ asset('/sb/js/demo/chart-area-demo.js') }}"></script>
-<script src="{{ asset('/sb/js/demo/chart-pie-demo.js') }}"></script>
+  <!-- Page level custom scripts -->
+  <script src="{{ asset('/sb/js/demo/chart-area-demo.js') }}"></script>
+  <script src="{{ asset('/sb/js/demo/chart-pie-demo.js') }}"></script>
 
-</body>
+  </body>
 
-</html>
+  </html>

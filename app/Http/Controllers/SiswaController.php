@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sekolah;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $sekolah = Sekolah::all();
+        return view('create', compact('sekolah'));
     }
 
     /**
@@ -34,6 +36,7 @@ class SiswaController extends Controller
             'nis' => 'required|integer',
             'nama' => 'required|string',
             'alamat' => 'required|string',
+            'sekolah_id' => 'required|',
         ]);
         Siswa::create($validator);
         return redirect('siswa')->with('succes', 'Data Berhasil disimpan');
@@ -53,7 +56,8 @@ class SiswaController extends Controller
     public function edit(string $id)
     {
         $data = Siswa::find($id);
-        return view('edit', compact('data'));
+        $sekolah = Sekolah::all();
+        return view('edit', compact('data', 'sekolah'));
     }
 
     /**
@@ -65,6 +69,7 @@ class SiswaController extends Controller
             'nis' => 'required|integer',
             'nama' => 'required',
             'alamat' => 'required|string',
+            'sekolah_id' => 'required'
         ]);
         Siswa::find($id)->update($validator);
         return redirect('siswa')->with('success', 'Data berhasil diubah');
