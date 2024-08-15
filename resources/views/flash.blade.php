@@ -10,7 +10,7 @@
   </div>
 @elseif ($errors->any())
   <div class="alert alert-danger mt-2" role="alert">
-    {{-- <button type="button" class="close" data-dismiss="alert" ariahidden="true">&times;</button> --}}
+    <button type="button" class="close" data-dismiss="alert" ariahidden="true">&times;</button>
     Masukkan Data Dengan Benar
   </div>
 @endif
